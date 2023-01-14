@@ -28,5 +28,6 @@ func (p *SizedPool[T]) Put(x *T) {
 	select {
 	case p.pool <- x:
 	default:
+		x = nil
 	}
 }
